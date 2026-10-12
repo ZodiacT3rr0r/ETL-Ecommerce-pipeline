@@ -1,4 +1,4 @@
-"""Load the raw GCS CSVs into BigQuery olist_bronze.* (PROJECT_CONTEXT §7).
+"""Load the raw GCS CSVs into BigQuery olist_bronze.* datasets.
 
 Per table:
   1. Load gs://<bucket>/raw/<file> into olist_bronze._stg_<table> using the explicit

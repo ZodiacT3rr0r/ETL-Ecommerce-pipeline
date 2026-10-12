@@ -1,6 +1,6 @@
 # Cloud-Native Batch ETL Pipeline for E-Commerce Sales Analytics
 
-An automated, scheduled batch ELT pipeline that ingests the Olist Brazilian E-Commerce dataset into Google Cloud Storage, transforms and models it natively in Google BigQuery into a star schema, enforces data quality via SQL validation checks, and exposes the warehouse to Looker Studio dashboards.
+An automated, scheduled batch ETL pipeline that ingests the Olist Brazilian E-Commerce dataset into Google Cloud Storage, transforms and models it natively in Google BigQuery into a star schema, enforces data quality via SQL validation checks, and exposes the warehouse to Looker Studio dashboards.
 
 ---
 
@@ -29,7 +29,6 @@ An automated, scheduled batch ELT pipeline that ingests the Olist Brazilian E-Co
 ## 3. Directory Layout
 ```
 ecommerce-etl-pipeline/
-├── PROJECT_CONTEXT.md          # Authoritative project reference
 ├── README.md                   # Quick start and overview
 ├── requirements.txt            # Python dependencies (BigQuery, Storage, pytest, etc.)
 ├── .gitignore                  # Ignores data/, .env, venv/, but tracks schema JSONs

@@ -1,7 +1,7 @@
 # Olist E-Commerce Star Schema & Data Model
 
 ## 1. Architectural Overview
-The warehouse models the Olist E-Commerce dataset within BigQuery's `olist_gold` dataset following an **ELT Medallion Architecture**:
+The warehouse models the Olist E-Commerce dataset within BigQuery's `olist_gold` dataset following a **Medallion Architecture**:
 - **`olist_bronze`**: Raw tables loaded directly from GCS with explicit JSON schemas + ingestion audit columns (`_loaded_at`, `_source_file`).
 - **`olist_silver`**: Cleaned, typed, deduplicated (via `QUALIFY ROW_NUMBER()`), and filtered domain tables.
 - **`olist_gold`**: Star-schema dimensional model serving reporting queries and Looker Studio dashboards.
@@ -9,7 +9,7 @@ The warehouse models the Olist E-Commerce dataset within BigQuery's `olist_gold`
 ---
 
 ## 2. Fact Table: `olist_gold.fact_orders`
-- **Grain**: **One row per order** (Decision D2).
+- **Grain**: **One row per order**.
 - **Partitioning**: `PARTITION BY order_date_key` (optimizes date-range time series queries in Looker Studio).
 - **Clustering**: `CLUSTER BY customer_key` (co-locates data by customer for high-performance joins).
 
@@ -74,8 +74,8 @@ Deduplicated Brazilian geographic coordinates aggregated to one row per postal c
 ---
 
 ## 4. Reporting Table: `olist_gold.rpt_product_sales`
-Because the fact table grain is **one row per order** (Decision D2), an order containing multiple products cannot store product attributes without violating 1NF. 
+Because the fact table grain is **one row per order**, an order containing multiple products cannot store product attributes without violating 1NF. 
 
-To power the **Product Performance** dashboard page without requiring Looker Studio to join directly to `olist_silver`, a dedicated flat reporting table is materialized at the **order-item grain** (Decision D3):
+To power the **Product Performance** dashboard page without requiring Looker Studio to join directly to `olist_silver`, a dedicated flat reporting table is materialized at the **order-item grain**:
 - **Grain**: One row per order line item.
 - **Columns**: `order_id`, `order_item_id`, `order_date_key`, `order_status`, `product_key`, `seller_key`, `product_category_name_english`, `price`, `freight_value`.

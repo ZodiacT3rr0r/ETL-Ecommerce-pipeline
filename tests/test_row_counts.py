@@ -4,7 +4,7 @@ Offline tests (always run, no GCP needed - run these as soon as the CSVs are in 
   * all 9 source files are present
   * each CSV header matches its pinned schema in ingestion/schemas/ exactly (names and order)
 
-GCP test (PROJECT_CONTEXT §11, runs only after Step 5 and only with RUN_GCP_TESTS=1):
+GCP test (runs only after Step 5 and only with RUN_GCP_TESTS=1):
   * row count of every local CSV == num_rows of its olist_bronze table
 
 Usage:

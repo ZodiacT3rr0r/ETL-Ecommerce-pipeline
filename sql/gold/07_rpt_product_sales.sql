@@ -1,5 +1,5 @@
 -- Gold: flat reporting table, one row per ORDER ITEM, for the "Product performance" dashboard page.
--- Exists because fact_orders is order-grain and cannot carry per-product data (decisions D2/D3).
+-- Exists because fact_orders is order-grain and cannot carry per-product data without violating 1NF.
 -- It is NOT the star-schema fact table.
 CREATE OR REPLACE TABLE olist_gold.rpt_product_sales AS
 SELECT

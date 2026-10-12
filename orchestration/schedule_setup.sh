@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Step 10 (option A): deploy run_pipeline.py as a Cloud Run JOB and trigger it daily with Cloud Scheduler.
+# Deploy run_pipeline.py as a Cloud Run JOB and trigger it daily with Cloud Scheduler.
 # Run ONLY after `python orchestration/run_pipeline.py` has succeeded locally (Step 9).
 # Safe to re-run: the job is redeployed; the scheduler job is updated if it already exists.
 # Usage: bash orchestration/schedule_setup.sh

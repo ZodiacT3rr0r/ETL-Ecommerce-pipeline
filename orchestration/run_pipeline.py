@@ -1,4 +1,4 @@
-"""Pipeline orchestrator (PROJECT_CONTEXT §12).
+"""Pipeline orchestrator for the BigQuery ETL workflow.
 
 Runs, in order:  silver (sql/silver/*.sql)  ->  gold (sql/gold/*.sql)  ->  quality (DQ checks)
 Files within a stage run in filename order (01_, 02_, ...), which encodes the dependencies.
@@ -99,7 +99,7 @@ def run_quality_stage(client: bigquery.Client, project: str, run_id: str) -> boo
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Run the Olist ELT pipeline inside BigQuery.")
+    parser = argparse.ArgumentParser(description="Run the Olist ETL pipeline inside BigQuery.")
     parser.add_argument("--stage", choices=(*STAGES, "all"), default="all")
     args = parser.parse_args(argv)
 

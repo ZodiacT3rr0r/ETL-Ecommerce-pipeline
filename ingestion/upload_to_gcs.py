@@ -15,7 +15,7 @@ from google.cloud import storage
 ROOT = Path(__file__).resolve().parent.parent
 RAW_DIR = ROOT / "data" / "raw"
 
-# Single source of truth for the file -> bronze table mapping (PROJECT_CONTEXT §6.1).
+# Mapping from raw CSV file to bronze table name.
 SOURCE_FILES: dict[str, str] = {
     "olist_orders_dataset.csv": "orders",
     "olist_order_items_dataset.csv": "order_items",

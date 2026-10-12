@@ -1,8 +1,8 @@
--- Data-quality checks DQ01-DQ14 (PROJECT_CONTEXT §11).
+-- Data-quality checks DQ01-DQ14.
 -- ONE query; each branch returns exactly one row: (check_id, check_name, table_name, severity, violations).
 -- A check passes when violations = 0. The orchestrator adds run_id, passed, checked_at and appends
 -- every row to olist_ops.data_quality_log, so all checks always run even if one fails.
--- No freshness check: the dataset is a static snapshot (decision D8).
+-- No freshness check: the dataset is a static snapshot of historical data.
 
 SELECT 'DQ01' AS check_id, 'order_id not null' AS check_name, 'fact_orders' AS table_name, 'ERROR' AS severity,
        COUNTIF(order_id IS NULL) AS violations

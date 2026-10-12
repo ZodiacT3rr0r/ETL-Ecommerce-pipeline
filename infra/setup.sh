@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One-time GCP setup for the Olist ETL pipeline (PROJECT_CONTEXT §14, Step 3).
+# One-time GCP setup for the Olist ETL pipeline.
 # Creates: raw GCS bucket, 4 BigQuery datasets, service account + IAM bindings.
 # Safe to re-run: every resource is checked before it is created; IAM bindings are idempotent.
 # Usage: bash infra/setup.sh   (after `gcloud auth login` and filling in .env)
