@@ -1,7 +1,3 @@
-# Internal docs / notes
-PROJECT_CONTEXT.md
-PROJECT_VIVA_AND_IMPLEMENTATION_GUIDE.md
-
 # Local data (CSVs are downloaded, never committed)
 data/
 
