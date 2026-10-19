@@ -19,6 +19,7 @@ SELECT
   f.delivery_days,
   c.customer_unique_id,
   c.customer_state,
+  CONCAT('BR-', c.customer_state) AS customer_state_iso,
   c.customer_city,
   c.customer_zip_prefix
 FROM olist_gold.fact_orders f
